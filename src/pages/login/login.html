@@ -1,0 +1,21 @@
+<ion-content>
+    <img src="assets/img/logo.png" class="logo" alt="logo" />
+    <!--p [@myAwesomeAnimation]='state' (click)="animateMe()">I will animate</p-->
+    <form class="login-form" [formGroup]="form">
+        <label for="username">
+            <i class="uta uta-avatar"></i>
+            <input type="text" placeholder="Enter username" [(ngModel)]="data.nickname"  formControlName="nickname"/>
+        </label>
+        <label for="password">
+           <i class="uta uta-unlocked"></i>
+           <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
+             [(ngModel)]="data.password"  formControlName="password" />
+           <password-strength-bar [passwordToCheck]="data.password"></password-strength-bar>
+        </label>
+    </form>
+    <button class="btn-forgot">Forgot password</button>
+
+</ion-content>
+<ion-footer>
+    <button class="btn-signin" [disabled]="form.invalid">Sign in</button>
+</ion-footer>
