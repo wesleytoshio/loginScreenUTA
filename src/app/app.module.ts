@@ -13,7 +13,10 @@ import { MyApp } from './app.component';
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '',
+      pageTransition:"md-transition"
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

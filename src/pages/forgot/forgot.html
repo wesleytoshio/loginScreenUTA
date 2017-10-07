@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-navbar>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <object><embed src="assets/img/mail.svg" class="logo" alt="logo"></object>
+    <p class="text-message">Enter your email address to send one code for create a new password</p>
+    <!-- STAGE SEND EMAIL -->
+    <form class="login-form" *ngIf="currentStage=='email'" [formGroup]="form">
+        <label for="username">
+            <i class="uta uta-email"></i>
+            <input type="text" placeholder="Enter username" [(ngModel)]="data.nickname"  formControlName="nickname"/>
+        </label>
+    </form>
+
+    <!-- STAGE  CODE -->
+    <form class="login-form" *ngIf="currentStage=='code'" [formGroup]="form">
+        <label for="username">
+            <i class="uta uta-avatar"></i>
+            <input type="email" placeholder="Enter email address" [(ngModel)]="data.email"  email="true" formControlName="nickname"/>
+        </label>
+        <label for="password">
+           <i class="uta uta-unlocked"></i>
+           <input [type]="inputType" class="form-control" id="password"  name="password" placeholder="Enter password"
+             [(ngModel)]="data.password"  formControlName="password" />
+             <!--input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
+             [(ngModel)]="data.password"  formControlName="password" />
+           <password-strength-bar [passwordToCheck]="data.password"></password-strength-bar-->
+            <button class="password-show-hide pass-show uta" [ngClass]="{'pass-show':inputType=='text'}"  (click)="showHidePass()"></button>
+        </label>
+    </form>
+
+    <!-- STAGE PASSWORD -->
+    <form class="login-form" *ngIf="currentStage=='password'" [formGroup]="form">
+        <label for="username">
+            <i class="uta uta-avatar"></i>
+            <input type="text" placeholder="Enter username" [(ngModel)]="data.nickname"  formControlName="nickname"/>
+        </label>
+        <label for="password">
+           <i class="uta uta-unlocked"></i>
+           <input [type]="inputType" class="form-control" id="password"  name="password" placeholder="Enter password"
+             [(ngModel)]="data.password"  formControlName="password" />
+             <!--input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
+             [(ngModel)]="data.password"  formControlName="password" />
+           <password-strength-bar [passwordToCheck]="data.password"></password-strength-bar-->
+            <button class="password-show-hide pass-show uta" [ngClass]="{'pass-show':inputType=='text'}"  (click)="showHidePass()"></button>
+        </label>
+    </form>
+</ion-content>
+<ion-footer>
+    <button class="btn-signin" [ngClass]="{'hidde-text':state=='big'}" [disabled]="form.valid" [@buttonCircledAnimated]='state' (click)="animateMe()" (@buttonCircledAnimated.done)="onAnimationEnd($event)">
+        <b>{{state == 'ball' ? '' : (state == 'expand' ? '' : 'Sign in')}}</b>
+        <ion-spinner *ngIf="state == 'ball'" name="crescent"></ion-spinner>
+    </button>
+</ion-footer>

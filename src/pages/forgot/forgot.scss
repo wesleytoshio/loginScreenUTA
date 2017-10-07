@@ -1,4 +1,21 @@
-page-login {
+page-forgot {
+    ion-header {
+        background-color: transparent $im;
+        * {
+            background-color: transparent $im;
+            border: none $im;
+        }
+        &:after {
+            content: none $im;
+        }
+        .back-button {
+            color: #fff $im;
+        }
+        .back-button-ios {
+            margin-left: 10px $im;
+            margin-top: 10px $im;
+        }
+    }
     ion-content {
         background-image: url('../assets/img/login_background.jpg');
         background-size: cover;
@@ -12,9 +29,18 @@ page-login {
             background-color: rgba($dark-blue, 0.7);
         }
         .logo {
-            max-width: 200px;
+            max-width: 150px;
             display: block;
             margin: 10vmax auto 5vmax;
+        }
+        .text-message {
+            text-align: center;
+            color: #fff;
+            font-size: 1.3em;
+            padding: 15px;
+            font-weight: 300 $im;
+            margin: 0 $im;
+            margin-top: 15px;
         }
         .login-form {
             width: 80vmin;

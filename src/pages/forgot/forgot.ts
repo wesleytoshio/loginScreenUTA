@@ -5,8 +5,8 @@ import {Validators, FormBuilder, FormControl, FormGroup, EmailValidator} from '@
 
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'page-forgot',
+  templateUrl: 'forgot.html',
   animations: [
     trigger('buttonCircledAnimated', [
       state('normal', style({
@@ -29,11 +29,11 @@ import {Validators, FormBuilder, FormControl, FormGroup, EmailValidator} from '@
   ]),
   ]
 })
-export class LoginPage {
+export class ForgotPage {
   private form : FormGroup;
   public data:any = {};
   public inputType:string= 'password';
-  state: string = 'normal';
+  public currentStage:string = 'email';
   constructor(public navCtrl: NavController,
     private formBuilder: FormBuilder,) {
       this.form = formBuilder.group({
@@ -45,15 +45,13 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+  state: string = 'normal';
   
-  login() {
+  animateMe() {
   this.state = (this.state === 'normal' ? 'ball' : 'normal');
   setTimeout(() => {
     this.state = 'expand';
   }, 1500);
-  }
-  goForgot(){
-    this.navCtrl.push('ForgotPage');
   }
   showHidePass(){
     this.inputType = this.inputType == 'password' ? 'text': 'password';

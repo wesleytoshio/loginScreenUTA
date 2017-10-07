@@ -5,8 +5,8 @@
     
     @font-face {
         font-family: "uta";
-        src: url("../assets/fonts/font.eot");
-        src: url("../assets/fonts/font.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/font.woff") format("woff"), url("../assets/fonts/font.ttf") format("truetype"), url("../assets/fonts/font.svg#Flaticon") format("svg");
+        src: url("../assets/fonts/icons.eot");
+        src: url("../assets/fonts/icons.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/icons.woff") format("woff"), url("../assets/fonts/icons.ttf") format("truetype"), url("../assets/fonts/icons.svg#Flaticon") format("svg");
         font-weight: normal;
         font-style: normal;
     }
@@ -14,7 +14,7 @@
     @media screen and (-webkit-min-device-pixel-ratio:0) {
         @font-face {
             font-family: "uta";
-            src: url("./fonts/font.svg#Flaticon") format("svg");
+            src: url("./fonts/icons.svg#Flaticon") format("svg");
         }
     }
     
@@ -34,12 +34,13 @@
     }
     
     .uta-unlocked:before {
-        content: "\f100";
+        content: $font-uta-unlocked;
     }
     
     .uta-avatar:before {
-        content: "\f101";
+        content: $font-uta-avatar;
     }
     
-    $font-uta-unlocked: "\f100";
-    $font-uta-avatar: "\f101";
+    .uta-email:before {
+        content: $font-uta-email;
+    }

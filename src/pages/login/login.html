@@ -8,14 +8,20 @@
         </label>
         <label for="password">
            <i class="uta uta-unlocked"></i>
-           <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
+           <input [type]="inputType" class="form-control" id="password"  name="password" placeholder="Enter password"
              [(ngModel)]="data.password"  formControlName="password" />
-           <password-strength-bar [passwordToCheck]="data.password"></password-strength-bar>
+             <!--input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
+             [(ngModel)]="data.password"  formControlName="password" />
+           <password-strength-bar [passwordToCheck]="data.password"></password-strength-bar-->
+            <button class="password-show-hide pass-show uta" [ngClass]="{'pass-show':inputType=='text'}"  (click)="showHidePass()"></button>
         </label>
     </form>
-    <button class="btn-forgot">Forgot password</button>
+    <button class="btn-forgot" (click)="goForgot()">Forgot password</button>
 
 </ion-content>
 <ion-footer>
-    <button class="btn-signin" [disabled]="form.invalid">Sign in</button>
+    <button class="btn-signin" [ngClass]="{'hidde-text':state=='big'}" [disabled]="form.valid" [@buttonCircledAnimated]='state' (click)="login()" (@buttonCircledAnimated.done)="onAnimationEnd($event)">
+        <b>{{state == 'ball' ? '' : (state == 'expand' ? '' : 'Sign in')}}</b>
+        <ion-spinner *ngIf="state == 'ball'" name="crescent"></ion-spinner>
+    </button>
 </ion-footer>
